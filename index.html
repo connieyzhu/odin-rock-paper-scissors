@@ -18,6 +18,65 @@
         }
     }
 
+    function play(playerSelection, computerSelection){
+        let playerSelectionEdit = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase();
+        let gameResult;
+        switch(playerSelectionEdit){
+            case "Rock":
+                if(computerSelection === "Rock"){
+                    gameResult = "You Tie!";
+                }else if (computerSelection === "Paper"){
+                    gameResult = "You Lose! " + computerSelection + " beats " + playerSelectionEdit;
+                }else{
+                    gameResult = "You Win! " + playerSelectionEdit + " beats " + computerSelection;
+                }
+                break;
+            case "Paper":
+                if(computerSelection === "Rock"){
+                    gameResult = "You Win! " + playerSelectionEdit + " beats " + computerSelection;
+                }else if (computerSelection === "Paper"){
+                    gameResult = "You Tie!";
+                }else{
+                    gameResult = "You Lose! " + computerSelection + " beats " + playerSelectionEdit;
+                }
+                break;
+            case "Scissors":
+                if(computerSelection === "Rock"){
+                    gameResult = "You Lose! " + computerSelection + " beats " + playerSelectionEdit;
+                }else if (computerSelection === "Paper"){
+                    gameResult = "You Win! " + playerSelectionEdit + " beats " + computerSelection;
+                }else{
+                    gameResult = "You Tie!";
+                }
+                break;
+        }
+        return gameResult;
+    }
+
+    function game(){
+        let playerScore = 0;
+        let computerScore = 0;
+        let gameResult;
+        for(i = 0; i < 5; i++){
+            gameResult = play(prompt("Rock, Paper, or Scissors?"), getComputerChoice());
+            if(gameResult.includes("Win")){
+                playerScore++;
+            }
+            if(gameResult.includes("Lose")){
+                computerScore++;
+            }
+        }
+        if(playerScore > computerScore){
+            return "You Win! " + playerScore + ":" + computerScore;
+        }else if (playerScore < computerScore){
+            return "You Lose! " + computerScore + ":" + playerScore; 
+        }else{
+            return "You Tie! " + computerScore + ":" + playerScore;
+        }
+
+
+    }
+
 
 </script>
 <body>
