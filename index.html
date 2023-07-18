@@ -52,7 +52,7 @@
         }
         return roundResult;
     }
-    function game(){
+    function game(){ 
         let playerScore = 0;
         let computerScore = 0;
         let roundResult;
@@ -60,8 +60,10 @@
         for(i = 0; i < 5; i++){
             roundResult = play(prompt("Rock, Paper, or Scissors?"), getComputerChoice());
 
+            while(roundResult == null){
+                roundResult = play(prompt("Try Again. Rock, Paper, or Scissors?"), getComputerChoice());
+            }
             console.log(roundResult);
-
             if(roundResult.includes("Win")){
                 playerScore++;
             }
