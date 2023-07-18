@@ -20,63 +20,68 @@
 
     function play(playerSelection, computerSelection){
         let playerSelectionEdit = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase();
-        let gameResult;
+        let roundResult;
         switch(playerSelectionEdit){
             case "Rock":
                 if(computerSelection === "Rock"){
-                    gameResult = "You Tie!";
+                    roundResult = "You Tie!";
                 }else if (computerSelection === "Paper"){
-                    gameResult = "You Lose! " + computerSelection + " beats " + playerSelectionEdit;
+                    roundResult = "You Lose! " + computerSelection + " beats " + playerSelectionEdit;
                 }else{
-                    gameResult = "You Win! " + playerSelectionEdit + " beats " + computerSelection;
+                    roundResult = "You Win! " + playerSelectionEdit + " beats " + computerSelection;
                 }
                 break;
             case "Paper":
                 if(computerSelection === "Rock"){
-                    gameResult = "You Win! " + playerSelectionEdit + " beats " + computerSelection;
+                    roundResult = "You Win! " + playerSelectionEdit + " beats " + computerSelection;
                 }else if (computerSelection === "Paper"){
-                    gameResult = "You Tie!";
+                    roundResult = "You Tie!";
                 }else{
-                    gameResult = "You Lose! " + computerSelection + " beats " + playerSelectionEdit;
+                    roundResult = "You Lose! " + computerSelection + " beats " + playerSelectionEdit;
                 }
                 break;
             case "Scissors":
                 if(computerSelection === "Rock"){
-                    gameResult = "You Lose! " + computerSelection + " beats " + playerSelectionEdit;
+                    roundResult = "You Lose! " + computerSelection + " beats " + playerSelectionEdit;
                 }else if (computerSelection === "Paper"){
-                    gameResult = "You Win! " + playerSelectionEdit + " beats " + computerSelection;
+                    roundResult = "You Win! " + playerSelectionEdit + " beats " + computerSelection;
                 }else{
-                    gameResult = "You Tie!";
+                    roundResult = "You Tie!";
                 }
                 break;
         }
-        return gameResult;
+        return roundResult;
     }
-
     function game(){
         let playerScore = 0;
         let computerScore = 0;
+        let roundResult;
         let gameResult;
         for(i = 0; i < 5; i++){
-            gameResult = play(prompt("Rock, Paper, or Scissors?"), getComputerChoice());
-            if(gameResult.includes("Win")){
+            roundResult = play(prompt("Rock, Paper, or Scissors?"), getComputerChoice());
+
+            console.log(roundResult);
+
+            if(roundResult.includes("Win")){
                 playerScore++;
             }
-            if(gameResult.includes("Lose")){
+            if(roundResult.includes("Lose")){
                 computerScore++;
             }
         }
         if(playerScore > computerScore){
-            return "You Win! " + playerScore + ":" + computerScore;
+            gameResult = "Game Won! " + playerScore + ":" + computerScore;
         }else if (playerScore < computerScore){
-            return "You Lose! " + computerScore + ":" + playerScore; 
+            gameResult = "Game Lost! " + computerScore + ":" + playerScore; 
         }else{
-            return "You Tie! " + computerScore + ":" + playerScore;
+            gameResult = "Game Tied! " + computerScore + ":" + playerScore;
         }
-
+        console.log(gameResult);
+        return gameResult;
 
     }
 
+    game();
 
 </script>
 <body>
