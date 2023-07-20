@@ -37,6 +37,7 @@
                 }else{
                     roundResult = "You Win! " + playerSelectionEdit + " beats " + computerSelection;
                 }
+                console.log("rock");
                 break;
             case "Paper":
                 if(computerSelection === "Rock"){
@@ -91,6 +92,9 @@
     }
 
     game();
+    const rockBtn = document.querySelector('.rock');
+    rockBtn.addEventListener('click', play("rock", getComputerChoice()));
+    
 
 </script>
 
