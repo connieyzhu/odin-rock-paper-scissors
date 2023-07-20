@@ -26,8 +26,10 @@
     }
 
     function play(playerSelection, computerSelection){
-        let playerSelectionEdit = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase();
+        let playerSelectionEdit = playerSelection
+        //.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase();
         let roundResult;
+        console.log('start');
         switch(playerSelectionEdit){
             case "Rock":
                 if(computerSelection === "Rock"){
@@ -37,7 +39,6 @@
                 }else{
                     roundResult = "You Win! " + playerSelectionEdit + " beats " + computerSelection;
                 }
-                console.log("rock");
                 break;
             case "Paper":
                 if(computerSelection === "Rock"){
@@ -58,6 +59,7 @@
                 }
                 break;
         }
+        console.log('end');
         return roundResult;
     }
     function game(){ 
@@ -65,20 +67,23 @@
         let computerScore = 0;
         let roundResult;
         let gameResult;
-        for(i = 0; i < 5; i++){
-            roundResult = play(prompt("Rock, Paper, or Scissors?"), getComputerChoice());
+        // while(playerScore < 5 && computerScore < 5){
 
-            while(roundResult == null){
-                roundResult = play(prompt("Try Again. Rock, Paper, or Scissors?"), getComputerChoice());
-            }
-            console.log(roundResult);
-            if(roundResult.includes("Win")){
-                playerScore++;
-            }
-            if(roundResult.includes("Lose")){
-                computerScore++;
-            }
-        }
+        // }
+        // for(i = 0; i < 5; i++){
+        //     roundResult = play(prompt("Rock, Paper, or Scissors?"), getComputerChoice());
+
+        //     while(roundResult == null){
+        //         roundResult = play(prompt("Try Again. Rock, Paper, or Scissors?"), getComputerChoice());
+        //     }
+        //     console.log(roundResult);
+        //     if(roundResult.includes("Win")){
+        //         playerScore++;
+        //     }
+        //     if(roundResult.includes("Lose")){
+        //         computerScore++;
+        //     }
+        // }
         if(playerScore > computerScore){
             gameResult = "Game Won! " + playerScore + ":" + computerScore;
         }else if (playerScore < computerScore){
@@ -91,9 +96,9 @@
 
     }
 
-    game();
+    //game();
     const rockBtn = document.querySelector('.rock');
-    rockBtn.addEventListener('click', play("rock", getComputerChoice()));
+    rockBtn.addEventListener('click', play);
     
 
 </script>
