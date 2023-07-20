@@ -26,34 +26,33 @@
     }
 
     function play(playerSelection, computerSelection){
-        let playerSelectionEdit = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase();
         let roundResult;
         console.log(playerSelection)
         console.log(computerSelection);
-        switch(playerSelectionEdit){
+        switch(playerSelection){
             case "Rock":
                 if(computerSelection === "Rock"){
                     roundResult = "You Tie!";
                 }else if (computerSelection === "Paper"){
-                    roundResult = "You Lose! " + computerSelection + " beats " + playerSelectionEdit;
+                    roundResult = "You Lose! " + computerSelection + " beats " + playerSelection;
                 }else{
-                    roundResult = "You Win! " + playerSelectionEdit + " beats " + computerSelection;
+                    roundResult = "You Win! " + playerSelection + " beats " + computerSelection;
                 }
                 break;
             case "Paper":
                 if(computerSelection === "Rock"){
-                    roundResult = "You Win! " + playerSelectionEdit + " beats " + computerSelection;
+                    roundResult = "You Win! " + playerSelection + " beats " + computerSelection;
                 }else if (computerSelection === "Paper"){
                     roundResult = "You Tie!";
                 }else{
-                    roundResult = "You Lose! " + computerSelection + " beats " + playerSelectionEdit;
+                    roundResult = "You Lose! " + computerSelection + " beats " + playerSelection;
                 }
                 break;
             case "Scissors":
                 if(computerSelection === "Rock"){
-                    roundResult = "You Lose! " + computerSelection + " beats " + playerSelectionEdit;
+                    roundResult = "You Lose! " + computerSelection + " beats " + playerSelection;
                 }else if (computerSelection === "Paper"){
-                    roundResult = "You Win! " + playerSelectionEdit + " beats " + computerSelection;
+                    roundResult = "You Win! " + playerSelection + " beats " + computerSelection;
                 }else{
                     roundResult = "You Tie!";
                 }
